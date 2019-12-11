@@ -1,10 +1,4 @@
-import { parse } from "./parse";
-import traverse from "./traverse";
-import unparse from "./unparse";
+import build from "./build";
+import { readConfigJSON } from "./config";
 
-const filename = process.argv[2];
-let ast = parse(filename);
-ast = traverse(ast);
-const code = unparse(ast);
-
-console.log(code);
+build(readConfigJSON());
