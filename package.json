@@ -8,12 +8,14 @@
 		"test": "jest"
 	},
 	"dependencies": {
-		"acorn": "^7.1.0",
 		"escodegen": "^1.12.0",
-		"espurify": "^2.0.1",
+		"estraverse": "^4.3.0",
 		"node": "^13.3.0"
 	},
 	"devDependencies": {
+		"@types/acorn": "^4.0.5",
+		"@types/escodegen": "^0.0.6",
+		"@types/estraverse": "^0.0.6",
 		"@types/jest": "^24.0.23",
 		"@types/node": "^12.12.14",
 		"jest": "^24.9.0",
