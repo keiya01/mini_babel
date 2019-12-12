@@ -4,8 +4,6 @@ var say = function() {
 
 var abc = "abc";
 
-say = "test";
-
 const t = null;
 t = "test";
 
