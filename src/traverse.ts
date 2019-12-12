@@ -26,13 +26,13 @@ const getAssignmentVariableName = (node: Node) => {
 	}
 };
 
-function changeVariableDeclarationKind(childNode: VariableDeclaration, declarators: Declarators) {
+const changeVariableDeclarationKind = (childNode: VariableDeclaration, declarators: Declarators) => {
 	childNode.declarations.map(declaration => {
 		if (declaration.id.type === "Identifier") {
 			childNode.kind = declarators[declaration.id.name];
 		}
 	});
-}
+};
 
 const traverse = (ast: Program) => {
 	const declarators: Declarators = {};
