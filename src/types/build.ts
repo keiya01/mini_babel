@@ -1,5 +1,4 @@
 export interface BuildConfig {
-	entry: string;
+	rootDir: string;
 	outDir: string;
-	output: string;
 }
