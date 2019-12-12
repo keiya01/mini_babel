@@ -57,7 +57,7 @@ a = 'abc';
 		expect(mockDirs[buildConfig.outDir]["mock.js"]).toEqual("const a = 'test';");
 	});
 
-	it("should be transformed arrow function if normal function is assigned to variable", () => {
+	it("should be transformed to arrow function if normal function is assigned to variable", () => {
 		mockDirs["mockFiles"] = {
 			"mock.js": `
 const a = function() {
