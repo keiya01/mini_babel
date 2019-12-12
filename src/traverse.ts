@@ -1,18 +1,12 @@
 import estraverse from "estraverse";
 import { Program, VariableDeclaration, VariableDeclarator, Node } from "estree";
+import { Declarators } from "./types/declarator";
 
 const getVariableDeclaratorName = (declaration: VariableDeclarator) => {
 	if (declaration.id.type !== "Identifier") {
 		return null;
 	}
 	return declaration.id.name;
-};
-
-const getDeclaratorKind = (node: VariableDeclaration) => {
-	if (node.kind === "var") {
-		return "const";
-	}
-	return node.kind;
 };
 
 const toArrowFunction = (declaration: VariableDeclarator) => {
@@ -40,8 +34,6 @@ function changeVariableDeclarationKind(childNode: VariableDeclaration, declarato
 	});
 }
 
-type Declarators = { [key: string]: "const" | "let" };
-
 const traverse = (ast: Program) => {
 	const declarators: Declarators = {};
 	estraverse.traverse(ast, {
@@ -55,7 +47,7 @@ const traverse = (ast: Program) => {
 					childNode.declarations = childNode.declarations.map(declaration => {
 						const variable = getVariableDeclaratorName(declaration);
 						if (variable) {
-							declarators[variable] = getDeclaratorKind(childNode);
+							declarators[variable] = "const";
 						}
 						return toArrowFunction(declaration);
 					});
