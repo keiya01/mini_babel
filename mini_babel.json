@@ -1,5 +1,4 @@
 {
-	"entry": "input.js",
-	"outDir": "dist",
-	"output": "build.js"
+	"rootDir": "example",
+	"outDir": "dist"
 }
